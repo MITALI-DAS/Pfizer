@@ -83,8 +83,7 @@ public class ConfigReader {
 	
 	public String getAppURL() {
 		String environment = getEnvironment();
-		String application = getApplicationUnderTest();
-		String appURL = getValueIfNotNull(application + "-" + environment);
+		String appURL = getValueIfNotNull(environment);
 		return appURL;
 	}
 	

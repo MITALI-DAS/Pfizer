@@ -2,7 +2,7 @@
 <suite name="pfizer Smoke Test">
 	<test name="Search Test">
 		<classes>
-			<class name = ""/>
+			<class name = "com.pfizer.tests.SearchTest"/>
 		</classes>
 	</test>
 </suite>

@@ -130,7 +130,7 @@ public class WebDriverManager {
 					+ "Please change the browser selection");
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		//driver.get(appURL);
+		driver.get(appURL);
 	}
 
 	public void setBrowserForMac(String browserName) {
