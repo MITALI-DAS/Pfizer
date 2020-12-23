@@ -137,8 +137,8 @@ public class WebDriverManager {
 		String baseDriverPath = configReader.getDriversLocationForMac();
 		switch (browserName.toUpperCase()) {
 		case "CHROME":
-			String chromeDriverPath = baseDriverPath + "/chromedriver";
-			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+			//String chromeDriverPath = baseDriverPath + "/chromedriver";
+			//System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 			driver = new ChromeDriver();
 			break;
 		case "FIREFOX":
@@ -155,6 +155,7 @@ public class WebDriverManager {
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(appURL);
+		driver.manage().window().maximize();
 	}
 
 	public void setUpRemoteBrowser(String gridURL) {
