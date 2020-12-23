@@ -46,5 +46,20 @@ public class SearchResultsPage extends CommonMethods {
 		invokeKeyboardEvent(getSearchTextBox(), Keys.ENTER);
 	}
 	
+	public boolean isSearchResultValid(String searchTerm) {
+		List<WebElement> searchResultLinks = getSearchResultLinks();
+		for(WebElement link: searchResultLinks) {
+			String linkText = getTextFromElement(link).toUpperCase();
+			System.out.println("Link text is : " + linkText);
+			if(!linkText.contains(searchTerm.toUpperCase())) {
+				return false;
+			}
+		}
+		
+		return true;
+		
+	}
+	
+	
 
 }
