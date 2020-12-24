@@ -149,10 +149,10 @@ public class CommonMethods {
 			wait.until(ExpectedConditions.visibilityOf(element));
 		} catch(Exception exception) {
 			exception.printStackTrace();
-		}
+		} 
 	}
 	
-	public void scrollToElement(WebElement element) {
+	public void scrollToElement(WebElement element) { 
 		try {
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			jse.executeScript("arguments[0].scrollIntoView(true);", element);
@@ -160,5 +160,43 @@ public class CommonMethods {
 			exception.printStackTrace();
 		}
 	}
-
+	
+	// create a method with name mouseHover with webelement as argument.. go aehad.. good // create a try catch block
+	 public void mouseHover(WebElement element) { // u forgot how to write try catch ? 
+		 try {
+			 Actions actions = new Actions(driver);
+			 actions.moveToElement(element).build().perform();
+		 } catch(Exception exception) {
+			 exception.printStackTrace();
+			 throw new RuntimeException("Error occurred while performing mouse hover operation");
+		 }
+	 }
+	 
+	public void clickElementUsingActions(WebElement element) {
+		try {
+			Actions actions = new Actions(driver);
+			actions.moveToElement(element).click().build().perform();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw new RuntimeException("Error occurred while performing click operation");
+		}
+	}
+	
+	public void selectFromDropDownByValue(WebElement element, String value) {
+		try {
+			
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw new RuntimeException("Error occurred while performing click operation");
+		}
+	}
+	
+	public void staticWait(int waitTimeInSecs) {
+		try {
+			Thread.sleep(waitTimeInSecs * 1000);
+		} catch(Exception exception) {
+			
+		}
+	}
+	
 }
