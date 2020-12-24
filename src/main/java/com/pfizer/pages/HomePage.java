@@ -21,19 +21,40 @@ public class HomePage extends CommonMethods {
 		PageFactory.initElements(driver, this);//used to initialise the page objects,its a concept
 	}
 
-	@FindBy(xpath = "(//ul[@id='slide-navbar-collapse'])/li")
+	@FindBy(xpath = "(//ul[@id='slide-navbar-collapse'])/li/div/a")
 	private List<WebElement> homePageHeaderLinks;
 
 	@FindBy(xpath = "(//div[@class='dropdown-toggle'])/a")
-	private List<WebElement> homePageAllLinks;
+	private List<WebElement> submenuLinks;
 
 	public List<WebElement> getHomePageHeaderLinks() {
 		return homePageHeaderLinks;
 	}
 
-	public List<WebElement> getHomePageAllLinks() {
-		return homePageAllLinks;
+	public List<WebElement> getSubMenuLinks() {
+		return submenuLinks;
 	}
 
+	public void mouseHoverMenuLink(String linkName) {
+		List<WebElement> menuLinks = getHomePageHeaderLinks();
+		for(WebElement link: menuLinks){	
+			if(getTextFromElement(link).toUpperCase().equals(linkName.toUpperCase())) {
+				mouseHover(link);
+				break;
+			}
+		}
+	}
 	
+	public void clickSubmenuLink(String submenuLinkName) {
+		List<WebElement> menuLinks = getSubMenuLinks();
+		for(WebElement link: menuLinks){	
+			if(getTextFromElement(link).toUpperCase().equals(submenuLinkName.toUpperCase())) {
+				clickElementUsingActions(link);
+				waitForPageToLoad();
+				System.out.print("Current page is: " + driver.getCurrentUrl());
+				break;
+			}
+		}
+	}
+		
 }

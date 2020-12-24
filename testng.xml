@@ -3,6 +3,7 @@
 	<test name="Search Test">
 		<classes>
 			<class name = "com.pfizer.tests.SearchTest"/>
+			<class name = "com.pfizer.tests.OtherTests"/>
 		</classes>
 	</test>
 </suite>
