@@ -12,4 +12,9 @@ public class OtherTests extends ParentTest {
 		homePage.staticWait(4);
 	}
 	
+	@Test
+	public void homePageTest() {
+		
+	}
+	
 }
