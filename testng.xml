@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="pfizer Smoke Test">
+<suite name="pfizer Smoke Test" parallel = "methods" thread-count = "5">
 	<test name="Search Test">
 		<classes>
 			<class name = "com.pfizer.tests.SearchTest"/>
-			<class name = "com.pfizer.tests.OtherTests"/>
 		</classes>
 	</test>
+	
 </suite>

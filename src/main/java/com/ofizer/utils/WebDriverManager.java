@@ -1,11 +1,17 @@
 
 package com.ofizer.utils;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class WebDriverManager {
@@ -159,7 +165,19 @@ public class WebDriverManager {
 	}
 
 	public void setUpRemoteBrowser(String gridURL) {
-		throw new RuntimeException("GIRD not implemented yet");
+		try {
+			DesiredCapabilities capabilities = new DesiredCapabilities();
+			capabilities.setCapability(CapabilityType.BROWSER_NAME, browserName);
+			//capabilities.setPlatform(Platform.);
+			capabilities.setCapability(CapabilityType.BROWSER_VERSION, browserVersion);
+			capabilities.setCapability(CapabilityType.PLATFORM_NAME, _OS_Name);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+			driver.get(appURL);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public String getLocalOSName() {

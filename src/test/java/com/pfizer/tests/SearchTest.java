@@ -12,5 +12,13 @@ public class SearchTest extends ParentTest {
 		Assert.assertTrue(result, "One or more search result link do not have the search term");
 	}
 	
+	@Test
+	public void sortTest() {
+		homePage.mouseHoverMenuLink("our purpose");
+		homePage.clickSubmenuLink("How does Pfizer price medicines?");
+		homePage.waitForPageToLoad();
+		homePage.staticWait(4);
+	}
+	
 	
 }
